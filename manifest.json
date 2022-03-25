@@ -1,0 +1,57 @@
+{
+  "id": "plugin-dari-api",
+  "displayName": "DARI API",
+  "description": "Plugin for integrating with the DARI API",
+  "apiVersion": "2",
+  "versionDescription": "Version 2",
+  "version": "2.0.0",
+  "iconFile": "icon.png",
+  "executable": "PluginDariApi",
+  "kind": "publisher",
+  "os": "$GOOS",
+  "arch": "$GOARCH",
+  "canConfigure": true,
+  "canProduceMultipleSchemas": true,
+  "canAcceptQueryBasedSchemas": false,
+  "canUseOAuth": false,
+  "canWrite": false,
+  "canConfigureWrite": false,
+  "accessGroups": ["dari"],
+  "configSchema": {
+    "ui": {
+      "ui:order": [
+        "ApiUrl",
+        "AuthTokenHeader",
+        "AuthToken"
+      ],
+      "AuthToken": {
+        "ui:widget": "password"
+      }
+    },
+    "schema": {
+      "type": "object",
+      "properties": {
+        "ApiUrl" : {
+          "type": "string",
+          "title": "API URL",
+          "description": "URL of the API endpoint to read."
+        },
+        "AuthTokenHeader" : {
+          "type": "string",
+          "title": "Auth Token Header",
+          "description": "Header to place the auth token within."
+        },
+        "AuthToken" : {
+          "type": "string",
+          "title": "Auth Token",
+          "description": "Auth token to be used for authentication."
+        }
+      },
+      "required": [
+        "ApiUrl",
+        "AuthTokenHeader",
+        "AuthToken"
+      ]
+    }
+  }
+}
